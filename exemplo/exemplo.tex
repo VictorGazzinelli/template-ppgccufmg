@@ -20,19 +20,36 @@
 	urlcolor=magenta, %% Cor das urls
 ]{hyperref}
 
-%% Exemplo de lista customizada ==================
+%% Exemplo 1 de lista customizada: Glossário ==================
+
+\newcommand{\glossario}{
+	\chapter*{List of Abbreviations and Acronyms}
+	
+	\begin{tabular}{ll}
+		BFS & \textit{Breadth-First Search}\\
+		BOW & \textit{Bag of Words} \\
+		TXT & \textit{Text File Format}\\
+		UFMG & Universidade Federal de Minas Gerais
+	\end{tabular}
+}
+
+%% **** Caso não haja nenhuma lista adicional, os comandos acima podem ser apagados. ****
+%% ===============================================
+
+%% Exemplo 2 de lista customizada: Lista de algoritmos ==================
 %% Para criar uma lista customizada (como Lista de Algoritmos, Lista de Exemplos) que ficará juntamente com as Lista de Figuras e Lista de Tabelas, execute os 3 comandos abaixo substituindo "algoritmos" pelo tipo de lista que estará criando. Para adicionar a lista ao documento, deverá passar o seguinte parâmetro no comando \ppgccufmg:
 %% \ppgccufmg{
 %% 		...
 %% 		listacustomizada={\listadealgoritmos}
 %% }
-\newfloat[chapter]{algoritmo}{lol}{Algoritmo}
-\newcommand{\listaalgoritmosname}{Lista de Algoritmos} %% Título da lista
-\newlistof{listadealgoritmos}{lol}{\listaalgoritmosname} %% O primeiro parâmetro é o nome da lista, e este deverá ser passado no parâmetro listacustomizada={\nomedalista}
-\newlistentry{algoritmo}{lol}{0} %% Nome do ambiente de cada algoritmo, e.g., \begin{algoritmo} ... \end{algoritmo}
+%\newfloat[chapter]{algoritmo}{lol}{Algoritmo}
+%\newcommand{\listaalgoritmosname}{Lista de Algoritmos} %% Título da lista
+%\newlistof{listadealgoritmos}{lol}{\listaalgoritmosname} %% O primeiro parâmetro é o nome da lista, e este deverá ser passado no parâmetro listacustomizada={\nomedalista}
+%\newlistentry{algoritmo}{lol}{0} %% Nome do ambiente de cada algoritmo, e.g., \begin{algoritmo} ... \end{algoritmo}
 
 %% **** Caso não haja nenhuma lista adicional, os comandos acima podem ser apagados. ****
 %% ===============================================
+
 
 \begin{document}
 	\ppgccufmg{
@@ -57,7 +74,7 @@
 		epigrafeautor={Unkown},
 		listadefiguras={sim}, %% Remova (ou comente) este parâmetro para remover a lista de figuras
 		listadetabelas={sim}, %% Remova (ou comente) este parâmetro para remover a lista de tabelas
-		listascustomizadas={\listadealgoritmos} %% Lista customizada (e.g., lista de algoritmos). 
+		listascustomizadas={\glossario} %% Lista customizada (e.g., glossário, lista de algoritmos). 
 	}
 	
 	\chapter{Introdução}
@@ -77,21 +94,23 @@
 	\chapter{Desenvolvimento}
 		\lipsum[1-4]
 		
-		\begin{algoritmo}
-			\centering
-			\framebox[.5\textwidth]{\texttt{Código, Código, Código}}
-			\caption{Este é o meu Algoritmo 1.}
-			\label{alg:algoritmo1}
-		\end{algoritmo}
-	
-		\begin{algoritmo}
-			\centering
-			\framebox[.7\textwidth]{\texttt{Mais Código, Mais Código, Mais Código}}
-			\caption{Este é o meu Algoritmo 2.}
-			\label{alg:algoritmo2}
-		\end{algoritmo}
+%		Exemplo de algoritmo ==============================
+%		\begin{algoritmo}
+%			\centering
+%			\framebox[.5\textwidth]{\texttt{Código, Código, Código}}
+%			\caption{Este é o meu Algoritmo 1.}
+%			\label{alg:algoritmo1}
+%		\end{algoritmo}
+%	
+%		\begin{algoritmo}
+%			\centering
+%			\framebox[.7\textwidth]{\texttt{Mais Código, Mais Código, Mais Código}}
+%			\caption{Este é o meu Algoritmo 2.}
+%			\label{alg:algoritmo2}
+%		\end{algoritmo}
+%		===============================================
 		
-		\begin{figure}[h]
+		\begin{figure}[ht]
 			\centering
 			\caption{Prédio do DCC em 2016.}
 			\label{fig:exemplo}
@@ -101,7 +120,7 @@
 	
 		\lipsum[5]
 		
-		\begin{table}[h]
+		\begin{table}[ht]
 			\centering
 			\begin{tabular}{c|ccccccccl}
 				Natural & \multicolumn{9}{c}{Real}   \\ \hline
